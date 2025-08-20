@@ -53,6 +53,18 @@ type View interface {
 
 	// Unlock resets change flags and unlocks the state object's mutex.
 	Unlock()
+	
+	// ScrollbackLines returns the number of lines in the scrollback buffer
+	ScrollbackLines() int
+	
+	// GetScrollbackLine returns a specific line from the scrollback buffer
+	GetScrollbackLine(index int) []Glyph
+	
+	// ClearScrollback clears the scrollback buffer
+	ClearScrollback()
+	
+	// SetMaxScrollback sets the maximum scrollback buffer size
+	SetMaxScrollback(max int)
 }
 
 type TerminalOption func(*TerminalInfo)
