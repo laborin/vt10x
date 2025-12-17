@@ -344,8 +344,8 @@ func (t *State) resize(cols, rows int) bool {
 		for i > 0 && !tabs[i] {
 			i--
 		}
-		for i += tabspaces; i < len(tabs); i += tabspaces {
-			tabs[i] = true
+		for i += tabspaces; i < cols; i += tabspaces {
+			t.tabs[i] = true
 		}
 	}
 
